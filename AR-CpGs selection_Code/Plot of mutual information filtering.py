@@ -10,7 +10,7 @@ plt.rcParams['axes.grid'] = False
 plt.rcParams['axes.grid.axis'] = 'both'
 plt.rcParams['axes.grid.which'] = 'major'
 plt.rcParams['font.family'] = 'Times New Roman'
-df=pd.read_excel(r"300MI55.xlsx", header=0)
+df=pd.read_excel(r"300MI.xlsx", header=0)
 all_mutual_info = df['MI Score'].to_numpy()
 selected_indices = np.argsort(all_mutual_info)[-100:]
 selected_mutual_info = np.zeros_like(all_mutual_info)
