@@ -29,7 +29,7 @@ for repeat in range(repeats):
     for fold_num, (train_index, val_index) in enumerate(kf.split(X_train), 1):
         X_tr, X_val = X_train.iloc[train_index], X_train.iloc[val_index]
         y_tr, y_val = y_train.iloc[train_index], y_train.iloc[val_index]
-        votes_te = np.zeros((X_val.shape[0], 70), dtype=int)
+        votes_val = np.zeros((X_val.shape[0], 70), dtype=int)
         for i in range(1, 18):
             if i == 1:
                 groups = [18, 35, 52, 69]
@@ -43,11 +43,11 @@ for repeat in range(repeats):
             for idx, group in enumerate(y_pred_te_groups):
                 start = groups[group - 1] if group > 0 else 1
                 end = groups[group] if group < len(groups) else 70
-                votes_te[idx, start:end] += 1
-        y_pred_te = np.argmax(votes_te, axis=1)
-        for idx, pred in zip(val_index, y_pred_te):
+                votes_val[idx, start:end] += 1
+        y_pred_val = np.argmax(votes_val, axis=1)
+        for idx, pred in zip(val_index, y_pred_val):
             train_preds[idx].append(pred)
-        mae_te = mean_absolute_error(y_val, y_pred_te)
+        mae_te = mean_absolute_error(y_val, y_pred_val)
         train_mae_scores.append(mae_te)
 
 avg_train_mae = np.mean(train_mae_scores)
