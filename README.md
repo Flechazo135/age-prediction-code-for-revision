@@ -5,7 +5,7 @@ This study employed an **ensemble model** with 17 neural network (NN) classifier
 The following scripts were provided for various tasks:
 - **Randomly splitting the samples.py**: Randomly partitions the samples into training and testing sets (provided in Correlation and the ensemble model construction/Code/`Randomly splitting the samples.py`）.
 - **The ensemble model (17-NN) with LIME.py**: Generates model explanations using **LIME** for interpretability for **Reviewer 3** (provided in Correlation and the ensemble model construction/Code/`The ensemble model (17-NN) with LIME.py`）.
-- A **Residual Plot** was added to address **Reviewer 5's** comments, and the corresponding code can be found in **"Residual Plot.py"** (provided in Model comparison/Code/`Randomly splitting the samples.py`）.
+- A **Residual Plot** was added to address **Reviewer 5's** comments, and the corresponding code can be found in **"Residual Plot.py"** (provided in Model comparison/Code/`Residual Plot.py`）.
 
 ### Overview of Sections:
 1. **AR-CpGs selection**  
