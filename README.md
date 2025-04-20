@@ -2,7 +2,7 @@
 
 This study employed an **ensemble model** with 17 neural network (NN) classifiers for **age prediction** based on salivary DNA methylation. This repository provided the code and input data used in our study. The research was organized into four main sections, with the corresponding code and input data available in their respective folders.
 
-The following scripts were provided for various tasks:
+**The following scripts were provided for various tasks**:
 - **Randomly splitting the samples.py**: Randomly partitions the samples into training and testing sets (provided in Correlation and the ensemble model construction/Code/`Randomly splitting the samples.py`）.
 - **The ensemble model (17-NN) with LIME.py**: Generates model explanations using **LIME** for interpretability for **Reviewer 3** (provided in Correlation and the ensemble model construction/Code/`The ensemble model (17-NN) with LIME.py`）.
 - A **Residual Plot** was added to address **Reviewer 5's** comments, and the corresponding code can be found in **"Residual Plot.py"** (provided in Model comparison/Code/`Residual Plot.py`）.
