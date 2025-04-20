@@ -9,13 +9,13 @@ os.chdir(r"pathway")
 # Input
 data = pd.read_excel(r"all sample with set.xlsx", header=0)
 train_data = data[data['set'] == 'Training']
-val_data = data[data['set'] == 'Testing']
+test_data = data[data['set'] == 'Testing']
 X_train = train_data.drop(['age', 'ID', 'set'], axis=1)
 y_train = train_data['age']
 ID_train = train_data['ID']
-X_test = val_data.drop(['age', 'ID', 'set'], axis=1)
-y_test = val_data['age']
-ID_test = val_data['ID']
+X_test = test_data.drop(['age', 'ID', 'set'], axis=1)
+y_test = test_data['age']
+ID_test = test_data['ID']
 # age bin
 def age_groups(y, groups):
     bins = np.concatenate(([1], groups, [71]))
@@ -40,15 +40,15 @@ for repeat in range(repeats):
             clf = MLPClassifier(hidden_layer_sizes=(30, 15), max_iter=5000,random_state=2)
             clf.fit(X_tr, y_tr_groups)
             classifiers.append((clf, groups))
-            y_pred_te_groups = clf.predict(X_val)
-            for idx, group in enumerate(y_pred_te_groups):
+            y_pred_val_groups = clf.predict(X_val)
+            for idx, group in enumerate(y_pred_val_groups):
                 start = groups[group - 1] if group > 0 else 1
                 end = groups[group] if group < len(groups) else 70
                 votes_te[idx, start:end] += 1
-        y_pred_te = np.argmax(votes_te, axis=1)
-        for idx, pred in zip(val_index, y_pred_te):
+        y_pred_val = np.argmax(votes_te, axis=1)
+        for idx, pred in zip(val_index, y_pred_val):
             train_preds[idx].append(pred)
-        mae_te = mean_absolute_error(y_val, y_pred_te)
+        mae_te = mean_absolute_error(y_val, y_pred_val)
         train_mae_scores.append(mae_te)
 
 avg_train_mae = np.mean(train_mae_scores)
