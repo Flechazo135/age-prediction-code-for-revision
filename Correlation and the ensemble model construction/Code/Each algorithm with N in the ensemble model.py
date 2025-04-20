@@ -15,13 +15,13 @@ os.chdir(r"pathway")
 # Input
 data = pd.read_excel(r"all sample with set.xlsx", header=0)
 train_data = data[data['set'] == 'Training']
-val_data = data[data['set'] == 'Testing']
+test_data = data[data['set'] == 'Testing']
 X_train = train_data.drop(['age', 'ID', 'set'], axis=1)
 y_train = train_data['age']
 ID_train = train_data['ID']
-X_test = val_data.drop(['age', 'ID', 'set'], axis=1)
-y_test = val_data['age']
-ID_test = val_data['ID']
+X_test = test_data.drop(['age', 'ID', 'set'], axis=1)
+y_test = test_data['age']
+ID_test = test_data['ID']
 # age boin
 def age_groups(y, groups):
     bins = np.concatenate(([1], groups, [70]))
